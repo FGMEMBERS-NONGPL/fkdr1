@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+
+<!--
+************************************************************************
+YASim aerodynamic model for FG Fokker-DR1, FDM made/adapted by Lester Boffo.
+
+Specifications: from http://en.wikipedia.org/wiki/Fokker_DR1
+
+General characteristics
+
+    Crew: one
+    Length: 7.33 m (24 ft 0 in)
+    Wingspan: 9.00 m (29 ft 6 in)
+    Height: 2.90 m (9 ft 6 in)
+    Wing area: 23.6 m/2 (254 ft/2)
+    Empty weight: 695 kg (1,532 lb)
+    Loaded weight: 886 kg (1,949 lb)
+    Max. takeoff weight: 955 kg (2,105 lb)
+    Powerplant: 1 x Mercedes D.IIIa inline water cooled engine, 127 kW (170 hp)
+
+Performance
+
+    Maximum speed: 175 km/h (94 kn, 109 mph) at sea level
+    Range: 480 km (261 nmi, 300 mi)
+    Service ceiling: 5,500 m (18,044 ft)
+    Rate of climb: 4.5 m/s (886ft/min)
+    Wing loading: 37.5 kg/m/2 (7.67 lb/ft2)
+    Power/mass: 0.13 kW/kg (0.081 hp/lb)
+
+Armament
+
+    2 x 7.92 mm (.312 in) LMG 08/15 machine guns
+
+************************************************************************
+-->
+<airplane mass="1090">
+
+<!-- Approach configuration -->
+<approach speed="43" aoa="7" fuel="0.2">
+  <control-setting axis="/controls/engines/engine[0]/throttle" value="0.19"/>
+  <control-setting axis="/controls/engines/engine[0]/mixture" value="1.0"/>
+</approach>
+
+<!-- Cruise configuration -->
+<cruise speed="101" alt="5000" fuel="0.6">
+  <control-setting axis="/controls/engines/engine[0]/throttle" value="0.9"/>
+  <control-setting axis="/controls/engines/engine[0]/mixture" value="0.79"/>
+</cruise>
+
+<!-- pilot's eyepoint -->
+<cockpit x="-0.62" y="0" z="0.62"/>
+
+<fuselage ax="0.86" ay="0.0" az="-0.396" bx="0.11" by="0.0" bz="-0.42" width="0.890" taper="0.65" midpoint="1.0"/>
+<fuselage ax="0.11" ay="0.0" az="-0.42" bx="-1.85" by="0.0" bz="-0.41" width="0.949" taper="0.85" midpoint="0.62" cy="0.97" cz="0.97"/>
+<fuselage ax="-1.85" ay="0.0" az="-0.41" bx="-4.51" by="0.0" bz="-0.36" width="0.714" taper="0.19" midpoint="0.0" cy="0.78" cz="0.687"/>
+
+
+<!--Main Wing -->
+<wing x="-0.031" y="0.0" z="0.94"
+          length="3.432" 
+          chord="0.98"
+          taper="1.07"
+          incidence="1.75"
+          twist="-1.25"
+          sweep="0.0"
+          dihedral="0.0"
+          camber="0.125">
+  <stall aoa="19" width="7" peak="2.5"/>
+  <flap1 start="0.42" end="1.1" lift="1.67" drag="1.19"/>
+        <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/>
+        <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
+      
+        <control-output control="FLAP1" side="left" prop="/surface-positions/left-aileron-pos-norm"/>
+        <control-output control="FLAP1" side="right" prop="/surface-positions/right-aileron-pos-norm"/>
+</wing>
+
+    <!-- Mid-wing -->
+  <mstab x="-0.22" y="0.28" z="-0.01" 
+        chord="0.973" 
+        length="2.830" 
+        taper="1" 
+        incidence="1.4"
+        twist="-0.35"
+        sweep="0.0"
+        dihedral="0.0" 
+        camber="0.105">
+        <stall aoa="19" width="7" peak="2.75"/>
+  </mstab>
+
+
+  <!-- Low wing -->
+  <mstab x="-0.52" y="0.45" z="-0.873" 
+        chord="0.982" 
+        length="2.42" 
+        taper="1" 
+        incidence="1.2"
+        twist="-0.35"
+        sweep="0.0"
+        dihedral="0.0" 
+        camber="0.105">
+        <stall aoa="19" width="7.0" peak="2.75"/>
+  </mstab>
+
+
+<hstab x="-3.502" y="0.12" z="0.007"
+       chord="1.654"
+       length="1.34"
+       effectiveness="1.86"
+       taper="0.19"
+       incidence="2.0"
+       camber="0.03"
+       sweep="28.0">
+  <stall aoa="23" width="5" peak="2.5"/>
+  <flap0 start="0.0" end="1.0" lift="1.75" drag="1.20"/>
+  <control-input axis="/controls/flight/elevator" control="FLAP0"/>
+  <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
+  <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+</hstab>
+
+<!-- rudder has to be able to counteract aileron drag -->
+<vstab x="-4.37" y="0" z="0.00"
+       taper="0.20" 
+       length="0.912"
+       chord="0.83"
+       effectiveness="1.94"
+       sweep="16">
+  <stall aoa="22" width="5" peak="2.5"/>
+  <flap0 start="-0.4" end="1" lift="1.45" drag="1.35"/>
+  <control-input axis="/controls/flight/rudder" square="true" control="FLAP0" invert="true"/>
+  <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+  <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"
+    min="1" max="-1"/>
+</vstab>
+
+  <!-- Engines      : Oberursel UR.II
+                      Le-Rhone 9J
+
+       Informations : http://en.wikipedia.org/wiki/Motorenfabrik_Oberursel
+
+       Type         : 9-cylinder, single-row, rotary engine
+       Power        :   110 hp at 1200 rpm (Maximum power)
+       Displacement :  16.28 L     ( 993.23 in3 )
+       Diameter     :    95 cm    (  37.40 in  )
+       Masse        : 117.4 kg    ( 269.00 lb  )
+  -->
+
+
+
+<propeller x="0.636" y="0.0" z="-0.4015" 
+           radius="1.15" 
+           mass="323"
+           moment="24"
+           blades="2"
+           cruise-power="98"
+           cruise-alt="5000"
+           cruise-speed="101" 
+           cruise-rpm="1150"
+           takeoff-power="110"
+           takeoff-rpm="1200">
+       <actionpt x="0.85" y="0.0" z="-0.4015" />
+             <piston-engine eng-rpm="1200"
+                            alt="5000"
+                            eng-power="110"
+                            bore="4.41"
+                            stroke="6.63"
+                            compression="4.75"
+                            min-throttle="0.07"
+                            displacement="911.4"/>
+             <control-input control="THROTTLE" axis="/controls/engines/engine[0]/throttle" />
+             <control-input control="STARTER" axis="/controls/engines/engine[0]/starter" />
+             <control-input control="MAGNETOS" axis="/controls/engines/engine[0]/magnetos" />
+             <control-input control="MIXTURE" axis="/controls/engines/engine[0]/mixture" />
+  </propeller>
+
+ <!-- left main -->
+<gear x="0.22" y="0.742" z="-1.945"
+        compression="0.19"
+        spring="0.93"
+        damp="2.6"
+        rebound-damp="0.9"
+        dfric="1.07"
+        sfric ="0.6">
+  <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
+  <control-input axis="/controls/gear/brake-parking" control="BRAKE" split="true"/>
+</gear>
+
+ <!-- right main -->
+<gear x="0.22" y="-0.742" z="-1.945" 
+        compression="0.19"
+        spring="0.93"
+        damp="2.6"
+        rebound-damp="0.9"
+        dfric="1.07"
+        sfric ="0.6">
+  <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
+  <control-input axis="/controls/gear/brake-parking" control="BRAKE" split="true"/>
+</gear>
+
+<!-- Tail wheel -->
+
+<gear x="-4.096" y="0" z="-0.683"
+         compression="0.047"
+         spring="1.35"
+         damp="4"
+         castering="1"
+         dfric="0.89"
+         sfric="0.50">
+  <control-input axis="/controls/flight/rudder" control="STEER" src0="-1.0" src1="1.0" dst0="0.39" dst1="-0.39"/>
+</gear>
+
+
+  <!-- Fuel  -->  
+<!-- Guess on fuel tank position -->
+<tank x="0.0320" y="0" z="0.024" capacity="120.4"/> 
+
+  <!-- simulated pilot and cargo weight -->
+
+ <!-- <weight x="-1.12" y="0" z="0.306" mass-prop="/sim/weight[0]/weight-lb"/> -->
+
+<ballast x="-0.25" y="0" z="-1.909" mass="180"/>
+
+</airplane>

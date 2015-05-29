@@ -2,10 +2,34 @@
 
 <PropertyList>
 
+ <path>dr1.ac</path>
+
+ <offsets>
+  <z-m>0.5</z-m>
+ </offsets>
+
  <model>
-  <name>dr1</name>
-  <path>Aircraft/fkdr1/Models/dr1-base.xml</path>
+  <name>cockpit</name>
+  <path>Aircraft/fkdr1/Models/cockpit.xml</path>
  </model>
+
+ <animation>
+  <type>spin</type>
+  <object-name>power_plant</object-name>
+  <object-name>propeller</object-name>
+  <property>/engines/engine[0]/rpm</property>
+  <factor>-1.0</factor>
+  <center>
+   <x-m>-0.88</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.40</z-m>
+  </center>
+  <axis>
+   <x>1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
 
  <animation>
   <type>rotate</type>
@@ -13,9 +37,9 @@
   <property>surface-positions/right-aileron-pos-norm</property>
   <factor>-17.35</factor>
   <center>
-   <x-m>0.42</x-m>
-   <y-m>0.0</y-m>
-   <z-m>0.92</z-m>
+   <x-m>0.18</x-m>
+   <y-m>-2.185</y-m>
+   <z-m>0.86</z-m>
   </center>
   <axis>
    <x>0.0</x>
@@ -30,9 +54,9 @@
   <property>surface-positions/right-aileron-pos-norm</property>
   <factor>17.35</factor>
   <center>
-   <x-m>0.42</x-m>
-   <y-m>0.0</y-m>
-   <z-m>0.92</z-m>
+   <x-m>0.18</x-m>
+   <y-m>2.185</y-m>
+   <z-m>0.86</z-m>
   </center>
   <axis>
    <x>0.0</x>
@@ -74,5 +98,25 @@
    <z>1.0</z>
   </axis>
  </animation>
+
+ <model>
+  <name>leftMGgun</name>
+  <path>Aircraft/fkdr1/Models/MG-ver6.ac</path>
+  <offsets>
+   <x-m>0.535</x-m>
+   <y-m>-0.15</y-m>
+   <z-m>0.149</z-m>
+  </offsets>
+ </model>
+
+ <model>
+  <name>rightMGgun</name>
+  <path>Aircraft/fkdr1/Models/MG-ver6.ac</path>
+  <offsets>
+   <x-m>0.535</x-m>
+   <y-m>0.15</y-m>
+   <z-m>0.149</z-m>
+  </offsets>
+ </model>
 
 </PropertyList>

@@ -3,183 +3,58 @@
 <PropertyList>
 
  <fx>
-
-  <turn>
-   <name>turning</name>
-   <mode>looped</mode>
-   <path>Aircraft/fkdr1/Sounds/turning.wav</path>
+  <cough>
+   <name>cough</name>
+   <path>Aircraft/fkdr1/Sounds/coughing.wav</path>
    <condition>
-    <property>engines/engine/cranking</property>
+    <property>engines/engine/rpm</property>
     <not>
-     <property>controls/engines/engine/magnetos</property>
      <property>engines/engine/running</property>
     </not>
    </condition>
-   <reference-dist>30</reference-dist>
-   <max-dist>2000</max-dist>
-   <position>
-    <x>-0.63</x>
-    <y>0.0</y>
-    <z>0.38</z>
-   </position>
+   <volume>
+    <property>engines/engine/rpm</property>
+    <factor>0.001</factor>
+   </volume>
    <pitch>
     <property>engines/engine/rpm</property>
     <min>0.8</min>
     <max>1.0</max>
-    <offset>0.2</offset>
-    <factor>0.000333</factor>
+    <offset>0.0026667</offset>
+    <factor>0.000666</factor>
    </pitch>
-  </turn>
+  </cough>
 
   <crank>
-   <name>cranking</name>
-   <mode>looped</mode>
+   <name>crank</name>
    <path>Aircraft/fkdr1/Sounds/cranking.wav</path>
-   <condition>
-    <property>engines/engine/cranking</property>
-    <property>controls/engines/engine/magnetos</property>
-    <not>
-     <property>engines/engine/running</property>
-    </not>
-   </condition>
-   <reference-dist>10</reference-dist>
-   <max-dist>2000</max-dist>
-   <position>
-    <x>-0.63</x>
-    <y>0.0</y>
-    <z>0.38</z>
-   </position>
-   <orientation>
-    <x>1.0</x>
-    <y>0.0</y>
-    <z>0.0</z>
-   </orientation>
-   <pitch>
-    <property>engines/engine/rpm</property>
-    <min>0.8</min>
-    <max>1.5</max>
-    <offset>0.2</offset>
-    <factor>0.000333</factor>
-   </pitch>
-  </crank>
-
-  <cough>
-   <name>cough</name>
-   <mode>once</mode>
-   <path>Aircraft/fkdr1/Sounds/coughing.wav</path>
    <property>engines/engine/running</property>
-   <reference-dist>10</reference-dist>
-   <max-dist>2000</max-dist>
-   <position>
-    <x>-0.63</x>
-    <y>0.0</y>
-    <z>0.38</z>
-   </position>
-   <orientation>
-    <x>1.0</x>
-    <y>0.0</y>
-    <z>0.0</z>
-   </orientation>
-  </cough>
+   <volume>
+    <property>engines/engine/rpm</property>
+    <factor>0.001</factor>
+   </volume>
+  </crank>
 
   <engine>
    <name>engine</name>
    <mode>looped</mode>
    <path>Aircraft/fkdr1/Sounds/wasp.wav</path>
-   <condition>
-    <property>engines/engine/running</property>
-   </condition>
-   <!-- <delay-sec>2.0</delay-sec> -->
-   <reference-dist>50</reference-dist>
-   <max-dist>2000</max-dist>
-   <position>
-    <x>-0.63</x>
-    <y>0.0</y>
-    <z>0.38</z>
-   </position>
-   <orientation>
-    <x>1.0</x>
-    <y>0.0</y>
-    <z>0.0</z>
-   </orientation>
+   <property>engines/engine/running</property>
    <volume>
-    <property>/engines/engine/mp-osi</property>
-    <factor>0.023</factor>
-    <min>0.3</min>
-    <max>1.0</max>
+    <property>engines/engine/mp-osi</property>
+    <factor>0.005</factor>
+    <min>0.15</min>
+    <max>0.3</max>
+    <offset>0.15</offset> 
    </volume>
-   <volume>
-    <property>orientation/alpha-deg</property>
-    <type>log</type>
-    <min>1.0</min>
-    <max>1.2</max>
-   </volume>
-<!--
-   <volume>
-    <property>orientation/beta-deg</property>
-    <type>log</type>
-    <min>1.0</min>
-    <max>1.2</max>
-   </volume>
--->
    <pitch>
     <property>engines/engine/rpm</property>
-    <factor>0.0004</factor>
-    <min>0.4</min>
-    <max>1.2</max>
-    <offset>0.4</offset>
+    <min>0.8</min>
+    <max>1.0</max>
+    <offset>0.0026667</offset>
+    <factor>0.000666</factor>
    </pitch>
   </engine>
-
-  <blip>
-   <name>blip</name>
-   <mode>once</mode>
-   <path>Aircraft/fkdr1/Sounds/blip.wav</path>
-   <condition>
-    <property>engines/engine/running</property>
-    <not>
-     <property>controls/engines/engine/throttle</property>
-    </not>
-   </condition>
-   <reference-dist>30</reference-dist>
-   <max-dist>2000</max-dist>
-   <position>
-    <x>-0.63</x>
-    <y>0.0</y>
-    <z>0.38</z>
-   </position>
-   <orientation>
-    <x>1.0</x>
-    <y>0.0</y>
-    <z>0.0</z>
-   </orientation>
-  </blip>
-
-  <rumble>
-   <name>rumble</name>
-   <mode>looped</mode>
-   <path>Sounds/rumble.wav</path>
-   <condition>
-    <or>
-     <property>gear/gear[0]/wow</property>
-     <property>gear/gear[1]/wow</property>
-     <property>gear/gear[2]/wow</property>
-    </or>
-    <!-- <property>/sim/current-view/internal</property> -->
-   </condition>
-   <position>
-    <x>-0.25</x>
-    <y>-2.0</y>
-    <z>0.0</z>
-   </position>
-   <volume>
-    <property>/velocities/airspeed-kt</property>
-    <type>log</type>
-    <factor>0.25</factor>
-   </volume>
-   <reference-dist>10.0</reference-dist>
-   <max-dist>20.0</max-dist>
-  </rumble>
 
   <wind>
    <name>wind</name>

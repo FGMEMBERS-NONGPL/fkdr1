@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+
+************************************************************************
+-->
+
+
+<PropertyList>
+
+    <note>
+        This model was created using publicly available data, publicly available
+        technical reports, textbooks, and guesses. It contains no proprietary or
+        restricted data. It has been validated only to the extent that it seems
+        to "fly right", and possibly to comply to published, publicly known,
+        performance data (maximum speed, endurance, etc.). Thus, this model
+        is meant for educational and entertainment purposes only.
+
+        This simulation model is not endorsed by any manufacturer.
+    </note>
+
+ <sim>
+
+	<description>Fokker-DR1</description>
+        <author>LesterBoffo FDM, 3D ArgonV, Artists of SDoE's FS-WWI</author>
+        <status>"CREATIVE COMMON BY-NC-SA Copyright"</status>
+        <version>0.02 yasim revision  2013-11-07</version>
+
+	<flight-model archive="y">yasim</flight-model>
+	<aero archive="y">Fokker-DR1-yasim</aero>
+	<model>
+		<path archive="y">Aircraft/fkdr1/Models/dr1-jsb.xml</path>
+	</model>
+
+        <startup>
+            <splash-texture>Aircraft/fkdr1/DR1-splash.png</splash-texture>
+        </startup>
+
+	<view>
+		<internal archive="y">true</internal>
+		<config>
+				<x-offset-m archive="y">0</x-offset-m>
+                        <y-offset-m archive="y">0.72</y-offset-m>
+                        <z-offset-m archive="y">0.823</z-offset-m>
+				<pitch-offset-deg archive="y">-4.0</pitch-offset-deg>
+				<default-field-of-view-deg type="double">68.0</default-field-of-view-deg>
+		</config>
+	</view>
+
+        <current-view>
+            <field-of-view type="double">62.0</field-of-view>
+        </current-view>
+        <chase-distance-m type="double">-15.0</chase-distance-m>
+
+	<sound>
+		<audible>true</audible>
+		<path archive="y">Aircraft/fkdr1/Sounds/fkdr1-sound.xml</path>
+	</sound>
+
+
+ </sim>
+
+
+ <autopilot>
+     <settings>
+         <target-altitude-ft type="float">2000</target-altitude-ft>
+         <heading-bug-deg type="float">330</heading-bug-deg>
+     </settings>
+ </autopilot>
+
+ <controls>
+        <electric>
+            <master-switch>false</master-switch>
+            <battery-switch>false</battery-switch>
+            <external-power>false</external-power>
+        </electric>
+        <switches>
+            <master-avionics>false</master-avionics>
+        </switches>
+	<gear>
+                 <tailwheel-lock type="bool">0</tailwheel-lock>
+		<brake-parking type="double">1.0</brake-parking>
+	</gear>
+	<engines>
+		<engine n="0">
+			<magnetos>0</magnetos>
+		</engine>
+	</engines>
+        <flight>
+            <op-refuel-main type="bool">false</op-refuel-main>
+            <op-refuel-aux type="bool">false</op-refuel-aux>
+            <pilot-on type="bool">true</pilot-on>
+            <copilot-on type="bool">false</copilot-on>
+        </flight>
+ </controls>
+
+ <engines>
+	<engine>
+		<rpm type="double">0</rpm>
+	</engine>
+ </engines>
+
+
+
+</PropertyList>
