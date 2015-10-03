@@ -22,7 +22,7 @@
  <sim>
 
 	<description>Fokker-DR1</description>
-        <author>LesterBoffo FDM, 3D ArgonV, Artists of SDoE's FS-WWI</author>
+        <author>LesterBoffo FDM, t3xtures ArgonV, Artists of SDoE's FS-WWI</author>
         <status>"CREATIVE COMMON BY-NC-SA Copyright"</status>
         <version>0.02 yasim revision  2013-11-07</version>
 
@@ -30,7 +30,15 @@
 	<aero archive="y">Fokker-DR1-yasim</aero>
 	<model>
 		<path archive="y">Aircraft/fkdr1/Models/dr1-jsb.xml</path>
+        <livery>
+           <file type="string">default</file>
+        </livery>
 	</model>
+
+     
+       <!-- <livery>
+        <file type="string">Aircraft/fkdr1/Models/Liveries/default.xml</file>
+      </livery> -->
 
         <startup>
             <splash-texture>Aircraft/fkdr1/DR1-splash.png</splash-texture>
@@ -56,6 +64,8 @@
 		<audible>true</audible>
 		<path archive="y">Aircraft/fkdr1/Sounds/fkdr1-sound.xml</path>
 	</sound>
+
+  <menubar include="Dialogs/fkdr1-menu.xml"/>
 
 
  </sim>
@@ -99,6 +109,12 @@
 		<rpm type="double">0</rpm>
 	</engine>
  </engines>
+
+<nasal>
+  <fkdr1>
+   <file>Aircraft/fkdr1/nasal/liveries.nas</file>
+  </fkdr1>
+</nasal>
 
 
 

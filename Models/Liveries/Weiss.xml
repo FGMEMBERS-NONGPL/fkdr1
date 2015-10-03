@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+  <sim>
+    <model>
+      <livery>
+        <name type="string">Weiss</name>
+        <fuselage-texture>Liveries/WeissDr1A.png</fuselage-texture>
+         <wings-texture>Liveries/WeissDR1B.png</wings-texture>
+      </livery>
+    </model>
+  </sim>
+</PropertyList>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+  <sim>
+    <model>
+      <livery>
+        <name type="string">default</name>
+        <fuselage-texture>Liveries/502Dr1A.png</fuselage-texture>
+         <wings-texture>Liveries/502DR1B.png</wings-texture>
+      </livery>
+    </model>
+  </sim>
+</PropertyList>

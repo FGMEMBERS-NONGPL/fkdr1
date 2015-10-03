@@ -4,9 +4,49 @@
 
  <path>dr1.ac</path>
 
- <offsets>
-  <z-m>0.5</z-m>
- </offsets>
+
+
+    <animation>
+    <type>material</type>
+    <object-name>fuselage</object-name>
+    <object-name>leftwheel</object-name>
+    <object-name>rightwheel</object-name>
+    <object-name>poly</object-name>
+    <object-name>cabanes</object-name>
+    <object-name>landing-gera</object-name>
+    <object-name>right-tire</object-name>
+    <object-name>left-tire</object-name>
+    <object-name>rudder</object-name>
+    <object-name>upsurf-midwing</object-name>
+    <object-name>upsurf-lowing</object-name>
+    <object-name>cylinder</object-name>
+    <object-name>box</object-name>
+    <object-name>forefure</object-name>
+    <object-name>upsurface-upwing</object-name>
+    <object-name>left_elevator</object-name>
+    <object-name>right_elevator</object-name>
+    <object-name>cowling</object-name>
+    <object-name>mid-root</object-name>
+    <object-name>losurf-midwing</object-name>
+    <object-name>losurf-lowing</object-name>
+    <object-name>left_aileron</object-name>
+    <object-name>right_aileron</object-name>
+    <object-name>losurf-LGwing</object-name>
+    <object-name>coaming</object-name>
+    <object-name>propeller</object-name>
+    <object-name>upper fuse</object-name>
+
+    <object-name>fuelgaugecowl</object-name>
+    <object-name>leftstabstrut</object-name>
+    <object-name>rightstabstrut</object-name>
+    <object-name>leftwingskid</object-name>
+    <object-name>rightwingskid</object-name>
+    <object-name>fuseunderside</object-name>
+
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture</texture-prop>
+    <texture>Liveries/502Dr1A.png</texture>
+    <texture>Liveries/502DR1B.png</texture>
 
  <model>
   <name>cockpit</name>
@@ -15,8 +55,14 @@
 
  <animation>
   <type>spin</type>
-  <object-name>power_plant</object-name>
+  <object-name>engine</object-name>
   <object-name>propeller</object-name>
+    <condition>
+      <greater-than>
+        <property>engines/engine[0]/rpm</property>
+        <value> 20 </value>
+      </greater-than>
+    </condition>
   <property>/engines/engine[0]/rpm</property>
   <factor>-1.0</factor>
   <center>
@@ -39,7 +85,7 @@
   <center>
    <x-m>0.18</x-m>
    <y-m>-2.185</y-m>
-   <z-m>0.86</z-m>
+   <z-m>1.36</z-m>
   </center>
   <axis>
    <x>0.0</x>
@@ -56,7 +102,7 @@
   <center>
    <x-m>0.18</x-m>
    <y-m>2.185</y-m>
-   <z-m>0.86</z-m>
+   <z-m>1.36</z-m>
   </center>
   <axis>
    <x>0.0</x>
@@ -103,7 +149,7 @@
   <name>leftMGgun</name>
   <path>Aircraft/fkdr1/Models/MG-ver6.ac</path>
   <offsets>
-   <x-m>0.535</x-m>
+   <x-m>0.315</x-m>
    <y-m>-0.15</y-m>
    <z-m>0.149</z-m>
   </offsets>
@@ -113,7 +159,7 @@
   <name>rightMGgun</name>
   <path>Aircraft/fkdr1/Models/MG-ver6.ac</path>
   <offsets>
-   <x-m>0.535</x-m>
+   <x-m>0.315</x-m>
    <y-m>0.15</y-m>
    <z-m>0.149</z-m>
   </offsets>
