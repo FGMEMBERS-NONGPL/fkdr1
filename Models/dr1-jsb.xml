@@ -50,7 +50,7 @@
     <object-name>rightstabstrut</object-name>
     <object-name>fuseunderside</object-name>
     <property-base>sim/model/livery</property-base>
-    <texture-prop>fuselage-texture</texture-prop>
+    <texture-prop>texture-fuselage</texture-prop>
     <texture>Liveries/502Dr1A.png</texture>
    </animation>
 

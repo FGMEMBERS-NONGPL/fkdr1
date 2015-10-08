@@ -5,8 +5,8 @@
     <model>
       <livery>
         <name type="string">Weiss</name>
-        <fuselage-texture>Liveries/WeissDr1A.png</fuselage-texture>
-         <wings-texture>Liveries/WeissDR1B.png</wings-texture>
+        <texture-fuselage>Liveries/WeissDr1A.png</texture-fuselage>
+         <texture-wings>Liveries/WeissDR1B.png</texture-wings>
       </livery>
     </model>
   </sim>

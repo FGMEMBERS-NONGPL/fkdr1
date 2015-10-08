@@ -5,8 +5,8 @@
     <model>
       <livery>
         <name type="string">Eberhardt</name>
-        <fuselage-texture>Liveries/EberhardtDr1A.png</fuselage-texture>
-         <wings-texture>Liveries/EberhardtDR1B.png</wings-texture>
+        <texture-fuselage>Liveries/EberhardtDr1A.png</texture-fuselage>
+         <texture-wings>Liveries/EberhardtDR1B.png</texture-wings>
       </livery>
     </model>
   </sim>

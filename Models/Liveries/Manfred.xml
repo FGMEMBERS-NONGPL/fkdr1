@@ -5,8 +5,8 @@
     <model>
       <livery>
         <name type="string">Manfred</name>
-        <fuselage-texture>Liveries/ManfredDr1A.png</fuselage-texture>
-         <wings-texture>Liveries/ManfredDR1B.png</wings-texture>
+        <texture-fuselage>Liveries/ManfredDr1A.png</texture-fuselage>
+         <texture-wings>Liveries/ManfredDR1B.png</texture-wings>
       </livery>
     </model>
   </sim>

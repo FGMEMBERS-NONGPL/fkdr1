@@ -6,7 +6,7 @@
  
     <crank>
       <name>engstart</name>
-      <path>Aircraft/fkdr1/Sounds/cranking.wav</path>
+      <path>Aircraft/fkdr1/Sounds/starter.wav</path>
       <property>/engines/engine/cranking</property>
       <volume>
         <offset>0.4</offset>
@@ -39,8 +39,13 @@
 
     <crank>
       <name>cough</name>
-      <path>Sounds/coughing.wav</path>
-      <property>/engines/engine/running</property>
+      <path>Aircraft/fkdr1/Sounds/cranking.wav</path>
+   <condition>
+      <property>/engines/engine/cranking</property>
+    <and>
+     <property>engines/engine/running</property>
+    </and>
+   </condition>
       <volume>
         <offset>0.3</offset>
       </volume>

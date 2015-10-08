@@ -22,23 +22,23 @@
  <sim>
 
 	<description>Fokker-DR1</description>
-        <author>LesterBoffo FDM, t3xtures ArgonV, Artists of SDoE's FS-WWI</author>
+        <author>LesterBoffo FDM, textures ArgonV, Artists of SDoE's FS-WWI, Erik Hofman (3D model)</author>
         <status>"CREATIVE COMMON BY-NC-SA Copyright"</status>
         <version>0.02 yasim revision  2013-11-07</version>
 
 	<flight-model archive="y">yasim</flight-model>
 	<aero archive="y">Fokker-DR1-yasim</aero>
 	<model>
-		<path archive="y">Aircraft/fkdr1/Models/dr1-jsb.xml</path>
+		<path archive="y">Aircraft/fkdr1/Models/dr1.xml</path>
         <livery>
            <file type="string">default</file>
         </livery>
 	</model>
 
-     
-       <!-- <livery>
-        <file type="string">Aircraft/fkdr1/Models/Liveries/default.xml</file>
-      </livery> -->
+     <submodels> 
+      <serviceable type="bool">true</serviceable>
+      <path>Aircraft/fkdr1/Models/Effects/guns/submodels.xml</path>
+    </submodels>
 
         <startup>
             <splash-texture>Aircraft/fkdr1/DR1-splash.png</splash-texture>
@@ -47,11 +47,11 @@
 	<view>
 		<internal archive="y">true</internal>
 		<config>
-				<x-offset-m archive="y">0</x-offset-m>
-                        <y-offset-m archive="y">0.72</y-offset-m>
-                        <z-offset-m archive="y">0.823</z-offset-m>
+		  <x-offset-m archive="y">0</x-offset-m>
+          <y-offset-m archive="y">0.275</y-offset-m>
+          <z-offset-m archive="y">1.103</z-offset-m>
 				<pitch-offset-deg archive="y">-4.0</pitch-offset-deg>
-				<default-field-of-view-deg type="double">68.0</default-field-of-view-deg>
+				<default-field-of-view-deg type="double">72.0</default-field-of-view-deg>
 		</config>
 	</view>
 
@@ -67,10 +67,19 @@
 
   <menubar include="Dialogs/fkdr1-menu.xml"/>
 
-
+  <weight>
+   <name type="string">Pilot</name>
+   <weight-lb alias="/yasim/fkdr1/pilot-lb"/>
+   <min-lb type="double">130.0</min-lb>
+   <max-lb type="double">210.0</max-lb>
+  </weight> 
+  
  </sim>
 
-
+  <input>
+   <keyboard include="Dialogs/fkdr1-keyboard.xml"/>
+  </input>
+ 
  <autopilot>
      <settings>
          <target-altitude-ft type="float">2000</target-altitude-ft>
@@ -114,6 +123,10 @@
   <fkdr1>
    <file>Aircraft/fkdr1/nasal/liveries.nas</file>
   </fkdr1>
+      <guns>
+      <file>Aircraft/fkdr1/Nasal/weapons.nas</file>
+      <file>Aircraft/fkdr1/Nasal/revi.nas</file>
+    </guns>
 </nasal>
 
 
